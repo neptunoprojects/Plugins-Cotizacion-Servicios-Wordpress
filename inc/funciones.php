@@ -140,14 +140,22 @@ function enviar_data()
 {
 
     global $wpdb;
+ 
+ 
+    $servicios = $_POST["servicios"]; 
 
-    $json = $_POST["servicios"];
+    $json = implode(",", $servicios);
+
+
     $nombre = $_POST["nombre"];
     $email = $_POST["email"];
     $telefono = $_POST["telefono"];
 
 
     $db_table_name = $wpdb->prefix . 'servicios_cotizacion';
+
+ 
+
 
     $data = array('cliente' => $nombre, 'cliente_email' =>  $email, 'cliente_telefono' => $telefono, 'cotizacion' => $json);
 
