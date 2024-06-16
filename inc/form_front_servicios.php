@@ -126,8 +126,9 @@
 
 
                     $(".total_servicios").html('Enviado con exito');
-                    document.getElementById('overlay').classList.remove('is-visible');
-                    document.getElementById('modal').classList.remove('is-visible');
+   
+                    setTimeout("location.href = '<?php global $wp; echo home_url( $wp->request );?>';",2000);
+
 
                 } else {
                     $(".total_servicios").html('Ocurrio un problema');
