@@ -7,8 +7,8 @@
 
 
     <input type='text' class='nombre' placeholder="Nombre y Apellido" />
-    <input type='email' class='email' placeholder="Email"/>
-    <input type='text' class='telefono' placeholder="Teléfono"/>
+    <input type='email' class='email' placeholder="Email" />
+    <input type='text' class='telefono' placeholder="Teléfono" />
     <input type='hidden' class='cotizar' />
     <button class="btn_servicios" onclick="Enviar_info()">Pedir cotización</button>
 
@@ -68,8 +68,8 @@
 
                     $(".total_servicios").empty()
                     for (var index = 0; index < obj.length; index++) {
-                        $(".total_servicios").append("<li>" + "<b>" + obj[index].titulo + "</b>" + "<p>" + obj[index].descripcion + "</p>" + "<p>" + formatter.format(obj[index].precio) +
-                            "</p>" + "</li>");
+                        $(".total_servicios").append("<li>" + "<b>" + obj[index].titulo + "</b>" + "<p>" + obj[index].descripcion + "</p>" + "<p><b>Precio: " + formatter.format(obj[index].precio) +
+                            "</b></p>" + "</li>");
                     }
 
 

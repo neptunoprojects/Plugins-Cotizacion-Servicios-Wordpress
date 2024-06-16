@@ -23,6 +23,10 @@
 /** Multi Select */
 
 
+.hero .hero-contenido ul {
+   display:block !important;
+}
+
 
 .chosen-container-multi {
     border: none;
@@ -90,6 +94,11 @@
     border-radius: 4px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
     z-index: 9999;
+}
+
+.modal .total_servicios  p{
+    font-size: 14px;
+    line-height: 1.4;
 }
 
 .modal-close-btn {

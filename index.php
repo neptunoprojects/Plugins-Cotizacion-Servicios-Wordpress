@@ -104,6 +104,20 @@ function servicios_ajuste()
         1
 
     );
+
+
+    add_submenu_page(
+        "servicios",
+        "Servicios",
+        "Solicitudes",
+        "manage_options",
+        plugin_dir_path(__file__) . "inc/solicitudes_servicios.php",
+        null,
+        1
+
+    );
+
+
 }
 
 // FUNCIONES

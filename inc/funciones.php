@@ -110,11 +110,14 @@ function procesar_data()
 
     $servicios = $_POST["servicios"];
 
+
     $servicios_array = implode(",", $servicios);
+
+
 
     $servicios_ids = array();
 
-    $results = $wpdb->get_results("SELECT * FROM  {$wpdb->prefix}servicios WHERE id IN ('$servicios_array')");
+    $results = $wpdb->get_results("SELECT * FROM  {$wpdb->prefix}servicios WHERE id IN ($servicios_array)");
 
     foreach ($results as $row => $value) :
         array_push($servicios_ids, $value);
