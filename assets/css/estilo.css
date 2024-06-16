@@ -1,4 +1,28 @@
+/* Div shortcode */
+
+.servicios_shortcode{
+ display:flex;
+ width: 100%;
+ gap: 15px;
+}
+
+
+/* Botones */
+
+.btn_servicios{
+    background: #2f3ea1;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0px;
+    font-weight: 600;
+    text-transform: uppercase;
+
+}
+
 /** Multi Select */
+
+
 
 .chosen-container-multi {
     border: none;
@@ -11,6 +35,8 @@
     border-radius: 4px;
     -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1) !important;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1) !important;
+    padding: 5px 5px !important;
+    width: 100%;
 }
 
 .chosen-container-multi .chosen-choices li.search-choice {
@@ -71,6 +97,9 @@
     right: 10px;
     top: 10px;
     font-size: 20px;
+    background: #659a77;
+    border: 0px;
+    color: #fff;
 }
 
 /** Overlay */
@@ -102,7 +131,12 @@
     list-style: none;
 }
 
-input[type=text], input[type=password], input[type=email], input[type=tel], form select, textarea {
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=tel],
+form select,
+textarea {
     width: 100%;
     height: auto;
     border-radius: 0;

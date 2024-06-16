@@ -7,7 +7,6 @@ function crear_shortcode_servicios()
 {
     include(plugin_dir_path(__FILE__) . 'query_servicios.php');
     include(plugin_dir_path(__FILE__) . 'form_front_servicios.php');
-
 }
 
 add_shortcode('servicios', 'crear_shortcode_servicios');
@@ -147,13 +146,12 @@ function enviar_data()
 
     $db_table_name = $wpdb->prefix . 'servicios_cotizacion';
 
-    $data = array('cliente' => $nombre, 'cliente_email' =>  $email, 'cliente_telefono' => $telefono , 'cotizacion' => $json);
+    $data = array('cliente' => $nombre, 'cliente_email' =>  $email, 'cliente_telefono' => $telefono, 'cotizacion' => $json);
 
     $format = array('%s', '%s', '%s', '%s', '%d');
     $wpdb->insert($db_table_name, $data, $format);
 
     wp_send_json("OK");
-     
 }
 
 add_action('wp_ajax_nopriv_enviar_data', 'enviar_data');

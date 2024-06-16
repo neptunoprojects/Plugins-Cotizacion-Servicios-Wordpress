@@ -6,11 +6,11 @@
     </div>
 
 
-    <input type='text' class='nombre' />
-    <input type='email' class='email' />
-    <input type='text' class='telefono' />
+    <input type='text' class='nombre' placeholder="Nombre y Apellido" />
+    <input type='email' class='email' placeholder="Email"/>
+    <input type='text' class='telefono' placeholder="Teléfono"/>
     <input type='hidden' class='cotizar' />
-    <button onclick="Enviar_info()">Pedir cotización</button>
+    <button class="btn_servicios" onclick="Enviar_info()">Pedir cotización</button>
 
 </div>
 
@@ -19,13 +19,13 @@
 <div class="servicios_shortcode">
 
 
-    <select class="servicios_campo chosen-select" require data-placeholder="Select Categories" multiple tabindex="8" name="servicios[]">
+    <select class="servicios_campo chosen-select" require data-placeholder="Seleccione un Servicio" multiple tabindex="8" name="servicios[]">
         <?php foreach ($results as $row) :
             echo "<option value='$row->id'>" .  $row->titulo . "</option>";
         endforeach;
         ?>
     </select>
-    <button onclick="Servicios()">Enviar</button>
+    <button class="btn_servicios" onclick="Servicios()">Enviar</button>
 
 </div>
 
