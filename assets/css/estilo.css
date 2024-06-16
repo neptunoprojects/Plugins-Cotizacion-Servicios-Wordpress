@@ -101,3 +101,20 @@
 .total_servicios li {
     list-style: none;
 }
+
+input[type=text], input[type=password], input[type=email], input[type=tel], form select, textarea {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    padding: 0;
+    border: 0;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    color: var(--color-black);
+    font-weight: 500;
+    border: 1px solid #000;
+    border-radius: 3px;
+    padding: 5px;
+    margin-bottom: 15px;
+}

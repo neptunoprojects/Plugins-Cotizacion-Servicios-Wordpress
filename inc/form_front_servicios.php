@@ -5,12 +5,13 @@
         <p></p>
     </div>
 
-    <form action='' method=''>
-        <input type='text' name='nombre' />
-        <input type='email' name='email' />
-        <input type='hidden' name='json_servicios' class='json_servicios' />
-        <button type=' submit'>Pedir cotización</button>
-    </form>
+
+    <input type='text' class='nombre' />
+    <input type='email' class='email' />
+    <input type='text' class='telefono' />
+    <input type='hidden' class='cotizar' />
+    <button onclick="Enviar_info()">Pedir cotización</button>
+
 </div>
 
 
@@ -18,7 +19,7 @@
 <div class="servicios_shortcode">
 
 
-    <select class="servicios_campo chosen-select" data-placeholder="Select Categories" multiple tabindex="8" name="servicios[]">
+    <select class="servicios_campo chosen-select" require data-placeholder="Select Categories" multiple tabindex="8" name="servicios[]">
         <?php foreach ($results as $row) :
             echo "<option value='$row->id'>" .  $row->titulo . "</option>";
         endforeach;
@@ -63,7 +64,7 @@
                     var obj = JSON.parse(d);
 
 
-                    $(".json_servicios").val(d);
+                    $(".cotizar").val(d);
 
                     $(".total_servicios").empty()
                     for (var index = 0; index < obj.length; index++) {
@@ -71,6 +72,50 @@
                             "</p>" + "</li>");
                     }
 
+
+                } else {
+                    $(".total_servicios").html('Ocurrio un problema');
+                }
+
+
+            }
+        });
+    }
+
+
+
+
+
+
+
+
+    function Enviar_info() {
+
+        var servicios = $(".cotizar").val();
+        var nombre = $(".nombre").val();
+        var email = $(".email").val();
+        var telefono = $(".telefono").val();
+
+
+        data = {
+            'action': 'enviar_data',
+            servicios: servicios,
+            nombre: nombre,
+            email: email,
+            telefono: telefono
+        };
+        $.ajax({
+            url: "<?php echo admin_url('admin-ajax.php'); ?>",
+            data: data,
+            method: "POST",
+
+            success: function(data) {
+                if (data) {
+
+
+                    $(".total_servicios").html('Enviado con exito');
+                    document.getElementById('overlay').classList.remove('is-visible');
+                    document.getElementById('modal').classList.remove('is-visible');
 
                 } else {
                     $(".total_servicios").html('Ocurrio un problema');

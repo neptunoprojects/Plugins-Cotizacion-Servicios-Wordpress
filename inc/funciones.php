@@ -130,4 +130,36 @@ function procesar_data()
 
 add_action('wp_ajax_nopriv_procesar_data', 'procesar_data');
 add_action('wp_ajax_procesar_data', 'procesar_data');
+
+
+
+
+function enviar_data()
+{
+
+    global $wpdb;
+
+    $json = $_POST["servicios"];
+    $nombre = $_POST["nombre"];
+    $email = $_POST["email"];
+    $telefono = $_POST["telefono"];
+
+
+    $db_table_name = $wpdb->prefix . 'servicios_cotizacion';
+
+    $data = array('cliente' => $nombre, 'cliente_email' =>  $email, 'cliente_telefono' => $telefono , 'cotizacion' => $json);
+
+    $format = array('%s', '%s', '%s', '%s', '%d');
+    $wpdb->insert($db_table_name, $data, $format);
+
+    wp_send_json("OK");
+     
+}
+
+add_action('wp_ajax_nopriv_enviar_data', 'enviar_data');
+
+add_action('wp_ajax_enviar_data', 'enviar_data');
+
+
+
 ?>
