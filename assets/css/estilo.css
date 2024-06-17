@@ -82,6 +82,7 @@
 
 .modal {
     pointer-events: none;
+    display:none;
     opacity: 0;
     transition: opacity 0.3s;
     position: fixed;
@@ -131,6 +132,7 @@
 /** JS */
 .is-visible {
     opacity: 1;
+    display:block;
     pointer-events: auto;
 }
 
@@ -224,4 +226,15 @@ p.exito{
 
 .campos.is-visible{
     display: block;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 720px){
+    
+    .servicios_shortcode{
+        flex-direction: column;
+       }
+ 
 }
