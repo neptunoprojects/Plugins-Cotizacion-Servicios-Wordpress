@@ -149,7 +149,8 @@ function servicios_javascripts()
     wp_enqueue_script('jquery_js', plugins_url('assets/js/jquery-3.3.1.min.js', __FILE__));
     wp_enqueue_script('chosen_js', plugins_url('assets/js/chosen.jquery.min.js', __FILE__));
     wp_enqueue_script('main_js', plugins_url('assets/js/main.js', __FILE__));
-    wp_enqueue_script('tel_js', plugins_url('assets/js/intlTelInput-jquery.min.js', __FILE__));
+    wp_enqueue_script('tel_js', plugins_url('assets/js/intlTelInput.min.js', __FILE__));
+ 
 }
 
 add_action('wp_footer', 'servicios_javascripts', 5);

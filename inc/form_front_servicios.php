@@ -3,7 +3,7 @@
     <button class="modal-close-btn" id="close-btn">X</button>
 
     <div class="error"></div>
-    
+
     <div class="error_servicios"></div>
     <div class="total_servicios">
 
@@ -13,13 +13,13 @@
     <div class="campos">
         <input type='text' class='nombre' placeholder="Nombre y Apellido" />
         <input type='email' class='email' placeholder="Email" />
-        <input type='text' class='telefono' placeholder="Teléfono" />
+        <input type='tel' class='telefono' />
         <input type='hidden' class='cotizar' />
         <button class="btn_servicios" onclick="Enviar_info()">Enviar</button>
     </div>
 </div>
 
- 
+
 
 <div class="servicios_shortcode">
 
@@ -156,7 +156,14 @@
 
                     $(".total_servicios").html('<p class="exito">Enviado con exito</p>');
                     $(".error").html('');
-                    setTimeout("location.href = '<?php global $wp; echo home_url($wp->request); ?>';", 2000);
+
+
+                    function cerrar_modal() {
+                        document.getElementById('overlay').classList.remove('is-visible');
+                        document.getElementById('modal').classList.remove('is-visible');
+                    }
+
+                    setTimeout(cerrar_modal, 2000);
 
                 } else {
                     $(".total_servicios").html('Ocurrio un problema');
