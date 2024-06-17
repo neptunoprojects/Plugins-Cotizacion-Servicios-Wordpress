@@ -133,7 +133,10 @@ function estilos_servicios($hook)
     wp_enqueue_style('mi_css');
     wp_register_style('chosen', plugins_url('assets/css/chosen.css', __FILE__));
     wp_enqueue_style('chosen');
+    wp_register_style('tel', plugins_url('assets/css/intlTelInput.css', __FILE__));
+    wp_enqueue_style('tel');
 }
+
 
 add_action('wp_enqueue_scripts', 'estilos_servicios');
 
@@ -146,6 +149,7 @@ function servicios_javascripts()
     wp_enqueue_script('jquery_js', plugins_url('assets/js/jquery-3.3.1.min.js', __FILE__));
     wp_enqueue_script('chosen_js', plugins_url('assets/js/chosen.jquery.min.js', __FILE__));
     wp_enqueue_script('main_js', plugins_url('assets/js/main.js', __FILE__));
+    wp_enqueue_script('tel_js', plugins_url('assets/js/intlTelInput-jquery.min.js', __FILE__));
 }
 
 add_action('wp_footer', 'servicios_javascripts', 5);

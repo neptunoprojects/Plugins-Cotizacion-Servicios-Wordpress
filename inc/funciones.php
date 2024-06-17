@@ -24,77 +24,7 @@ function servicios_lista()
 {
 
     include(plugin_dir_path(__FILE__) . 'query_servicios.php');
-?>
-
-    <div class="container">
-
-        Para usar el plugins, copie y pegue el shortcode donde necesite que aparezca [servicios]
-
-
-        <h2>Servicios</h2>
-
-
-        <table class="wp-list-table widefat fixed striped table-view-list pages" role="presentation">
-
-            <thead>
-                <th>
-                    Servicio
-                </th>
-
-                <th>
-                    Descripción
-                </th>
-
-                <th>
-                    Precio
-                </th>
-
-                <th>
-                    Acciones
-                </th>
-            </thead>
-            <tbody>
-
-                <?php foreach ($results as $row) : ?>
-
-                    <tr class='form-field form-required'>
-                        <td>
-
-                            <?php echo $row->titulo; ?>
-                        </td>
-
-
-                        <td>
-
-                            <?php echo $row->descripcion; ?>
-
-                        </td>
-
-                        <td>
-
-                            <?php echo $row->precio; ?>
-
-                        </td>
-
-                        <td>
-                            <div class="row">
-                                <div class="col">
-                                    <input type="submit" name="submit_image" value="Guardar" class="button button-primary" />
-                                </div>
-                            </div>
-                        </td>
-
-                    </tr>
-
-                <?php endforeach; ?>
-
-            </tbody>
-        </table>
-
-    </div>
-
-<?php
-
+    include(plugin_dir_path(__FILE__) . 'servicios_tabla.php');
 }
 
 
@@ -140,9 +70,9 @@ function enviar_data()
 {
 
     global $wpdb;
- 
- 
-    $servicios = $_POST["servicios"]; 
+
+
+    $servicios = $_POST["servicios"];
 
     $json = implode(",", $servicios);
 
@@ -152,9 +82,17 @@ function enviar_data()
     $telefono = $_POST["telefono"];
 
 
+
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        wp_send_json("error_email");
+        die();
+    }  
+
+
     $db_table_name = $wpdb->prefix . 'servicios_cotizacion';
 
- 
+
 
 
     $data = array('cliente' => $nombre, 'cliente_email' =>  $email, 'cliente_telefono' => $telefono, 'cotizacion' => $json);

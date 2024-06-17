@@ -17,7 +17,8 @@
     border: 0px;
     font-weight: 600;
     text-transform: uppercase;
-
+    margin-left: -5px;
+    margin-right: -5px;
 }
 
 /** Multi Select */
@@ -160,4 +161,65 @@ textarea {
     border-radius: 3px;
     padding: 5px;
     margin-bottom: 15px;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+ 
+
+.iti {
+    position: relative;
+    display: block !important;
+    margin-left: -5px;
+    margin-right: -5px;
+    margin-bottom: 15px;
+}
+
+
+.iti__country-list--dropup {
+    bottom: auto !important;
+}
+
+
+.hero .hero-contenido .iti__country-list.iti__hide{
+    display: none !important;
+}
+
+.iti__flag {
+    height: 15px !important;
+    background-image: url(../img/flags.png) !important;
+}
+
+.iti__country-list{
+    min-width: 200px;
+}
+
+p.exito{
+    background-color: rgb(73, 128, 37);
+    color:#fff !important;
+    font-size: 13px !important;
+    padding: 10px;
+    font-weight:700;
+}
+
+.error p{
+    background-color: red;
+    color:#fff !important;
+    font-size: 13px !important;
+    padding: 0 10px;
+    font-weight:700;
+}
+
+.modal.bg .error_servicios p{
+    background-color: red;
+    background-color: #fff !important;
+    color: red !important;
+    text-align: center;
+}
+ 
+.campos{
+    display:none;
+}
+
+.campos.is-visible{
+    display: block;
 }
