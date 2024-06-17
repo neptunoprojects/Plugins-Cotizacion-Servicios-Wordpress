@@ -1,6 +1,18 @@
 <?php
 
 
+
+function queryall ($tabla){
+    global $wpdb, $results;
+    $tabla = $wpdb->prefix . $tabla;
+
+    $results = $wpdb->get_results(
+        "SELECT * FROM  $tabla"
+    );
+}
+
+
+
 function query ($tabla, $paginas){
     global $wpdb, $results;
     $tabla = $wpdb->prefix . $tabla;

@@ -1,3 +1,9 @@
+<?php include(plugin_dir_path(__FILE__) . 'querys_paginacion.php');
+global $results;
+queryall("servicios");
+?>
+
+
 <div class="overlay" id="overlay"></div>
 <div class="modal" id="modal">
     <button class="modal-close-btn" id="close-btn">X</button>

@@ -5,7 +5,7 @@ query("servicios", 10);
 
 <div class="container wrap">
 
-    Para usar el plugins, copie y pegue el shortcode donde necesite que aparezca [servicios]
+    <h4>Para usar el plugins, copie y pegue el shortcode donde necesite que aparezca [servicios]</h4>
 
 
     <h2>Servicios</h2>
