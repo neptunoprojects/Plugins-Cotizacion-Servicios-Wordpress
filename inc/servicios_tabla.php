@@ -1,70 +1,79 @@
+<?php include(plugin_dir_path(__FILE__) . 'querys_paginacion.php');
+global $results;
+query("servicios", 10);
+?>
 
-<div class="container">
+<div class="container wrap">
 
-Para usar el plugins, copie y pegue el shortcode donde necesite que aparezca [servicios]
-
-
-<h2>Servicios</h2>
-
-
-<table class="wp-list-table widefat fixed striped table-view-list pages" role="presentation">
-
-    <thead>
-        <th>
-            Servicio
-        </th>
-
-        <th>
-            Descripción
-        </th>
-
-        <th>
-            Precio
-        </th>
-
-        <th>
-            Acciones
-        </th>
-    </thead>
-    <tbody>
-
-        <?php foreach ($results as $row) : ?>
-
-            <tr class='form-field form-required'>
-                <td>
-
-                    <?php echo $row->titulo; ?>
-                </td>
+    Para usar el plugins, copie y pegue el shortcode donde necesite que aparezca [servicios]
 
 
-                <td>
+    <h2>Servicios</h2>
 
-                    <?php echo $row->descripcion; ?>
 
-                </td>
+    <table class="wp-list-table widefat fixed striped table-view-list pages" role="presentation">
 
-                <td>
+        <thead>
+            <th>
+                Servicio
+            </th>
 
-                    <?php echo $row->precio; ?>
+            <th>
+                Descripción
+            </th>
 
-                </td>
+            <th>
+                Precio
+            </th>
 
-                <td>
-                    <div class="row">
-                        <div class="col">
-                            <input type="submit" name="submit_image" value="Guardar" class="button button-primary" />
+            <th>
+                Acciones
+            </th>
+        </thead>
+        <tbody>
+
+            <?php foreach ($results as $row) : ?>
+
+                <tr class='form-field form-required'>
+                    <td>
+
+                        <?php echo $row->titulo; ?>
+                    </td>
+
+
+                    <td>
+
+                        <?php echo $row->descripcion; ?>
+
+                    </td>
+
+                    <td>
+
+                        <?php echo $row->precio; ?>
+
+                    </td>
+
+                    <td>
+                        <div class="row">
+                            <div class="col">
+                                <input type="submit" name="submit_image" value="Guardar" class="button button-primary" />
+                            </div>
                         </div>
-                    </div>
-                </td>
+                    </td>
 
-            </tr>
+                </tr>
 
-        <?php
-        endforeach; 
-        include(plugin_dir_path(__FILE__) . 'paginacion.php');
-        ?>
+            <?php
+            endforeach;
+            ?>
 
-    </tbody>
-</table>
+        </tbody>
+    </table>
+
+
+    <?php
+    paginacion("servicios", 10);
+    ?>
+
 
 </div>

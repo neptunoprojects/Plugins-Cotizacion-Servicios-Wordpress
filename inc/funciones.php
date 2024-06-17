@@ -22,8 +22,6 @@ add_shortcode('servicios', 'crear_shortcode_servicios');
 
 function servicios_lista()
 {
-
-    include(plugin_dir_path(__FILE__) . 'query_servicios.php');
     include(plugin_dir_path(__FILE__) . 'servicios_tabla.php');
 }
 

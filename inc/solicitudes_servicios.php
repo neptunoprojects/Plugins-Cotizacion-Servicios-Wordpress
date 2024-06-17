@@ -1,15 +1,10 @@
-<?php
-
-include(plugin_dir_path(__FILE__) . 'query_solicitudes.php');
-
+<?php include(plugin_dir_path(__FILE__) . 'querys_paginacion.php');
+global $results;
+query("servicios_cotizacion", 10);
 ?>
 
 
-<div class="container">
-
-
-
-
+<div class="container wrap">
 
     <h2>Servicios</h2>
 
@@ -64,15 +59,11 @@ include(plugin_dir_path(__FILE__) . 'query_solicitudes.php');
                         <?php
 
 
-                        $results = $wpdb->get_results("SELECT * FROM  {$wpdb->prefix}servicios WHERE id IN ($row->cotizacion)");
+                        $results2 = $wpdb->get_results("SELECT * FROM  {$wpdb->prefix}servicios WHERE id IN ($row->cotizacion)");
 
-                        foreach ($results as $row => $value) :
-                            echo $value->titulo .  " <b>USD" . number_format( $value->precio, 2, '.', ',' ) . "</b>" . "<br/>";
+                        foreach ($results2 as $row => $value) :
+                            echo $value->titulo .  " <b>USD" . number_format($value->precio, 2, '.', ',') . "</b>" . "<br/>";
                         endforeach;
- 
-
-
-
 
                         ?>
                     </td>
@@ -92,4 +83,7 @@ include(plugin_dir_path(__FILE__) . 'query_solicitudes.php');
         </tbody>
     </table>
 
+    <?php
+    paginacion("servicios_cotizacion", 10);
+    ?>
 </div>
