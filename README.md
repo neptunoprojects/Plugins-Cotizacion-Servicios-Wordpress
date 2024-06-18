@@ -1,4 +1,4 @@
-DEMO <a href="https://jaydev.wordifysites.com">https://jaydev.wordifysites.com</a>
+
 
 <h3> Instalación y uso: </h3>
 
