@@ -27,7 +27,9 @@
 
 4 Automaticamente llega un correo al cliente y uno al administrador del sitio
 
-<center> ![image](https://github.com/neptunoprojects/Plugins-Cotizacion-Servicios-Wordpress/assets/9517788/1c92a20a-d516-4910-a13b-b8143b9918b8) </center>
+
+![image](https://github.com/neptunoprojects/Plugins-Cotizacion-Servicios-Wordpress/assets/9517788/1c92a20a-d516-4910-a13b-b8143b9918b8) 
+
 
 <h3> Instalación y uso: </h3>
 
