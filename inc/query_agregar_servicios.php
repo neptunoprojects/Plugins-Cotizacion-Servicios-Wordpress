@@ -9,7 +9,7 @@ if (isset($_POST["titulo"], $_POST["descripcion"], $_POST["precio"])) :
     $results = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}servicios where id = $wpdb->insert_id", OBJECT);
     if ($results) :
         echo "<div id='message' class='notice is-dismissible updated'>";
-        echo "<p>Servicio" . " " . $results->titulo . " " . "agregado</p>";
+        echo "<p>Servicio" . " " . esc_html($results->titulo) . " " . "agregado</p>";
         echo "</div>";
     endif;
 endif;

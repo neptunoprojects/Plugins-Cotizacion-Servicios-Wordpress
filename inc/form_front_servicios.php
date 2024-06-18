@@ -32,7 +32,7 @@ queryall("servicios");
 
     <select class="servicios_campo chosen-select" require data-placeholder="Seleccione un Servicio" multiple tabindex="8" name="servicios[]">
         <?php foreach ($results as $row) :
-            echo "<option value='$row->id'>" .  $row->titulo . "</option>";
+            echo "<option value=" . esc_html($row->id) . ">" .  esc_html($row->titulo) . "</option>";
         endforeach;
         ?>
     </select>
@@ -68,7 +68,7 @@ queryall("servicios");
         };
 
         $.ajax({
-            url: "<?php echo admin_url('admin-ajax.php'); ?>",
+            url: "<?php echo esc_html(admin_url('admin-ajax.php')); ?>",
             data: data,
             method: "POST",
 
@@ -146,7 +146,7 @@ queryall("servicios");
             telefono: telefono
         };
         $.ajax({
-            url: "<?php echo admin_url('admin-ajax.php'); ?>",
+            url: "<?php echo esc_html(admin_url('admin-ajax.php')); ?>",
             data: data,
             method: "POST",
 

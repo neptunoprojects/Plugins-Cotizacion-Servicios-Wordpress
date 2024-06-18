@@ -35,7 +35,7 @@
                                             <tr style="
     background: #333333; line-height: 3.5">
                                                 <td align="center" valign="top" style="width: 55px; padding:1px 5px 5px 32px;">
-                                                    <a style="color:#fff; font-size:30px;" href="<?php echo get_option("siteurl"); ?>" style="text-decoration:none;"><?php echo get_option("blogname"); ?></a>
+                                                    <a style="color:#fff; font-size:30px;" href="<?php echo esc_html(get_option("siteurl")); ?>" style="text-decoration:none;"><?php echo esc_html(get_option("blogname")); ?></a>
                                                 </td>
 
                                             </tr>
@@ -59,7 +59,7 @@
                                             <tr>
                                                 <td align="center">
                                                     <h3 style="font-family:Arial;font-style:normal;font-weight:bold;line-height:1.4;font-size:18px;color:#333333;">
-                                                        <?php echo $title; ?>
+                                                        <?php echo esc_html($title); ?>
                                                     </h3>
 
                                                     <hr>
@@ -69,7 +69,7 @@
                                             <!--para 1-->
                                             <tr>
                                                 <td style="font-family:Arial;font-style:normal;font-weight:normal;line-height:22px;font-size:14px;color:#333333;">
-                                                    <?php echo $html; ?>
+                                                    <?php echo esc_html($html); ?>
 
 
                                                 </td>

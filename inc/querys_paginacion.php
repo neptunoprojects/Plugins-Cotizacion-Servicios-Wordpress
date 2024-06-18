@@ -49,7 +49,7 @@ function paginacion($tabla, $paginas)
     ));
 
     if ($page_links) {
-        echo '<div class="tablenav"><div class="tablenav-pages">' . $page_links . '</div></div>';
+        echo '<div class="tablenav"><div class="tablenav-pages">' . esc_html($page_links) . '</div></div>';
     }
 }
 

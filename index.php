@@ -3,10 +3,10 @@
 /*
 Plugin Name: Servicios
 Plugin Uri: https://tuapp.shop
-Description: 1.0
+Description: Cotizador de servicios
 Author: Jaicer
 License: GPL2
-
+Version: 1.0
 */
 
 
@@ -122,12 +122,7 @@ function servicios_ajuste()
 
 }
 
-
-
-// FUNCIONES
-
-include(plugin_dir_path(__FILE__) . 'inc/funciones.php');
-
+ 
 
 // CARGA CSS FRONTEND
 
@@ -159,5 +154,11 @@ function servicios_javascripts()
 }
 
 add_action('wp_footer', 'servicios_javascripts', 5);
+
+
+
+// FUNCIONES
+
+include(plugin_dir_path(__FILE__) . 'inc/funciones.php');
 
 ?>

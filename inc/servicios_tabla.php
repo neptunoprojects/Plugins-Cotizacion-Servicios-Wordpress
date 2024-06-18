@@ -3,20 +3,26 @@ global $results;
 query("servicios", 10);
 
 
-if (isset($_REQUEST['id'])) :
 
-    if ((wp_verify_nonce($_REQUEST['nonce'], 'borrar-nonce'))) :
+if(isset($_POST["id"])){
+if (
+    !isset($_POST['nonce_campo'])
+    || !wp_verify_nonce($_POST['nonce_campo'], 'borrar')
+) {
+    print 'No se ha verificado el nonce.';
+    exit;
+} else {
+    borrar_registro("servicios", $_POST['id']);
+
+    header("location: " . $_SERVER['REQUEST_URI']);
+}
+}
 
 
-        borrar_registro("servicios", $_REQUEST['id']);
 
-        header("location: " . $_SERVER['REQUEST_URI']);
-    endif;
-
-endif;
 ?>
 
- 
+
 
 <div class="container wrap">
 
@@ -52,19 +58,19 @@ endif;
                 <tr class='form-field form-required'>
                     <td>
 
-                        <?php echo $row->titulo; ?>
+                        <?php echo esc_html($row->titulo); ?>
                     </td>
 
 
                     <td>
 
-                        <?php echo $row->descripcion; ?>
+                        <?php echo esc_html($row->descripcion); ?>
 
                     </td>
 
                     <td>
 
-                        <?php echo $row->precio; ?>
+                        <?php echo esc_html($row->precio); ?>
 
                     </td>
 
@@ -73,9 +79,13 @@ endif;
                             <div class="col">
 
                                 <form method="post">
-                                    <?php wp_nonce_field('borrar-nonce', 'nonce'); ?>
-                                    <input type="hidden" value="<?php echo $row->id; ?>" name="id" />
+
+
+                                    <input type="hidden" value="<?php echo esc_html($row->id); ?>" name="id" />
                                     <input type="submit" value="Borrar" class="button button-primary" />
+
+                                    <?php wp_nonce_field('borrar', 'nonce_campo'); ?>
+                                </form>
                                 </form>
                             </div>
                         </div>

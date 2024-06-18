@@ -6,18 +6,23 @@ include(plugin_dir_path(__FILE__) . 'querys_paginacion.php');
 global $results;
 query("servicios_cotizacion", 10);
 
+ 
 
-if (isset($_REQUEST['id'])) :
+if (isset($_POST["id"])) {
+    if (
+        !isset($_POST['nonce_campo'])
+        || !wp_verify_nonce($_POST['nonce_campo'], 'borrar')
+    ) {
+        print 'No se ha verificado el nonce.';
+        exit;
+    } else {
+        borrar_registro("servicios_cotizacion", $_POST['id']);
 
-    if ((wp_verify_nonce($_REQUEST['nonce'], 'borrar-nonce'))) :
-
-        
-        borrar_registro("servicios_cotizacion",$_REQUEST['id']);
-  
         header("location: " . $_SERVER['REQUEST_URI']);
-    endif;
+    }
+}
 
-endif;
+
 ?>
 
 
@@ -56,19 +61,19 @@ endif;
                 <tr class='form-field form-required'>
                     <td>
 
-                        <?php echo $row->cliente; ?>
+                        <?php echo esc_html($row->cliente); ?>
                     </td>
 
 
                     <td>
 
-                        <?php echo $row->cliente_email; ?>
+                        <?php echo esc_html($row->cliente_email); ?>
 
                     </td>
 
                     <td>
 
-                        <?php echo $row->cliente_telefono; ?>
+                        <?php echo esc_html($row->cliente_telefono); ?>
 
                     </td>
 
@@ -81,12 +86,12 @@ endif;
                         $array_precio = array();
 
                         foreach ($results2 as $row2 => $value) :
-                            echo $value->titulo .  " <b>USD" . number_format($value->precio, 2, '.', ',') . "</b>" . "<br/>";
+                            echo esc_html($value->titulo) .  " <b>USD" . esc_html(number_format($value->precio, 2, '.', ',')) . "</b>" . "<br/>";
 
                             array_push($array_precio, $value->precio);
                         endforeach;
 
-                        echo "<b>Total:</b> " . array_sum($array_precio);
+                        echo "<b>Total:</b> " . esc_html(array_sum($array_precio));
                         ?>
                     </td>
 
@@ -95,9 +100,10 @@ endif;
                             <div class="col">
 
                                 <form method="post">
-                                    <?php wp_nonce_field('borrar-nonce', 'nonce'); ?>
-                                    <input type="hidden" value="<?php echo $row->id; ?>" name="id" />
+           
+                                    <input type="hidden" value="<?php echo esc_html($row->id); ?>" name="id" />
                                     <input type="submit" value="Borrar" class="button button-primary" />
+                                    <?php wp_nonce_field('borrar', 'nonce_campo'); ?>
                                 </form>
                             </div>
                         </div>
@@ -124,7 +130,7 @@ endif;
             };
 
             jQuery.ajax({
-                url: "<?php echo admin_url('admin-ajax.php'); ?>",
+                url: "<?php echo esc_html(admin_url('admin-ajax.php')); ?>",
                 data: data,
                 method: "POST",
 
