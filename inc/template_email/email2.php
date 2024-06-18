@@ -94,7 +94,7 @@
 
 
                                                 foreach ($results as $row => $value) :
-                                                    echo "<p><b>Título: </b> " . $value->titulo . "<b>Precio: </b> " . $value->precio .  "</p>";
+                                                    echo "<p><b>Título: </b> " . $value->titulo . "<b> Precio: </b> " . $value->precio .  "</p>";
                                                     
 
                                                     array_push($array_precio, $value->precio);
