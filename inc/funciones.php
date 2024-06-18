@@ -12,12 +12,6 @@ function crear_shortcode_servicios()
 
 add_shortcode('servicios', 'crear_shortcode_servicios');
 
-?>
-
-
-
-<?php
-
 
 // LISTADO DE SERVICIOS BACKEND 
 
@@ -150,20 +144,19 @@ add_action('wp_ajax_enviar_data', 'enviar_data');
 
 // BORRAR REGISTRO
 
- 
 
-function borrar_registro($tabla, $id) {
+
+function borrar_registro($tabla, $id)
+{
 
     $tabla = $tabla;
 
     $id =  $id;
 
-	global $wpdb; 					 
+    global $wpdb;
 
-    return  $wpdb->delete($wpdb->prefix . $tabla, array( 'id' => $id ) );
-    
-
-} 
+    return  $wpdb->delete($wpdb->prefix . $tabla, array('id' => $id));
+}
 
 
 add_action('wp_ajax_nopriv_borrar_data', 'borrar_data');
@@ -171,9 +164,7 @@ add_action('wp_ajax_nopriv_borrar_data', 'borrar_data');
 add_action('wp_ajax_borrar_data', 'borrar_data');
 
 add_action('init', 'do_output_buffer');
-function do_output_buffer() {
+function do_output_buffer()
+{
     ob_start();
 }
-
-
-?>
