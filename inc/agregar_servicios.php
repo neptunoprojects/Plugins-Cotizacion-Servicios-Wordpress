@@ -5,11 +5,8 @@ include(plugin_dir_path(__FILE__) . 'query_agregar_servicios.php');
 
 ?>
 
-<div class="container">
+<div class="container wrap">
     
-
-    Para usar el plugins, copie y pegue el shortcode donde necesite que aparezca [servicios]
-
     <h2>Agregar Servicio</h2>
 
     <form method="post" enctype="multipart/form-data">

@@ -75,6 +75,10 @@ function servicio_plugin_uninstall()
 register_uninstall_hook(__FILE__, 'servicio_plugin_uninstall');
 
 
+// FUNCIONES
+
+include(plugin_dir_path(__FILE__) . 'inc/funciones.php');
+
 
 // CREACIÓN DEL MENU EN EL ADMIN
 
@@ -104,11 +108,23 @@ function servicios_ajuste()
         1
 
     );
+
+
+    add_submenu_page(
+        "servicios",
+        "Servicios",
+        "Solicitudes",
+        "manage_options",
+        plugin_dir_path(__file__) . "inc/solicitudes_servicios.php",
+        null,
+        1
+
+    );
+
+
 }
 
-// FUNCIONES
 
-include(plugin_dir_path(__FILE__) . 'inc/funciones.php');
 
 // CARGA CSS FRONTEND
 
@@ -119,7 +135,10 @@ function estilos_servicios($hook)
     wp_enqueue_style('mi_css');
     wp_register_style('chosen', plugins_url('assets/css/chosen.css', __FILE__));
     wp_enqueue_style('chosen');
+    wp_register_style('tel', plugins_url('assets/css/intlTelInput.css', __FILE__));
+    wp_enqueue_style('tel');
 }
+
 
 add_action('wp_enqueue_scripts', 'estilos_servicios');
 
@@ -132,6 +151,8 @@ function servicios_javascripts()
     wp_enqueue_script('jquery_js', plugins_url('assets/js/jquery-3.3.1.min.js', __FILE__));
     wp_enqueue_script('chosen_js', plugins_url('assets/js/chosen.jquery.min.js', __FILE__));
     wp_enqueue_script('main_js', plugins_url('assets/js/main.js', __FILE__));
+    wp_enqueue_script('tel_js', plugins_url('assets/js/intlTelInput.min.js', __FILE__));
+ 
 }
 
 add_action('wp_footer', 'servicios_javascripts', 5);
