@@ -69,7 +69,7 @@
                                             <!--para 1-->
                                             <tr>
                                                 <td style="font-family:Arial;font-style:normal;font-weight:normal;line-height:22px;font-size:14px;color:#333333;">
-                                                    <?php echo esc_html($html); ?>
+                                                    <?php echo $html; ?>
 
 
                                                 </td>
