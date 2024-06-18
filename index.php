@@ -47,7 +47,7 @@ function Activar()
         cliente varchar(200) NOT NULL,
         cliente_email varchar(200) NOT NULL,
         cliente_telefono varchar(200) NOT NULL,
-        cotizacion JSON NOT NULL,
+        cotizacion TEXT NOT NULL,
         PRIMARY KEY id (id)        
     );";
         require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
@@ -63,7 +63,7 @@ register_activation_hook(__FILE__, 'Activar');
 
 function servicio_plugin_uninstall()
 {
-    if (!defined('WP_UNINSTALL_PLUGIN')) exit();
+ 
     global $wpdb;
     $tabla_servicios = $wpdb->prefix . 'servicios';
     $tabla_cotizacion = $wpdb->prefix . 'servicios_cotizacion';
@@ -75,9 +75,7 @@ function servicio_plugin_uninstall()
 register_uninstall_hook(__FILE__, 'servicio_plugin_uninstall');
 
 
-// FUNCIONES
 
-include(plugin_dir_path(__FILE__) . 'inc/funciones.php');
 
 
 // CREACIÓN DEL MENU EN EL ADMIN
@@ -94,7 +92,7 @@ function servicios_ajuste()
         "manage_options",
         "servicios",
         "servicios_lista",
-        2
+        plugins_url('assets/img/performance.png', __FILE__),
     );
 
 
@@ -124,6 +122,11 @@ function servicios_ajuste()
 
 }
 
+
+
+// FUNCIONES
+
+include(plugin_dir_path(__FILE__) . 'inc/funciones.php');
 
 
 // CARGA CSS FRONTEND
@@ -156,3 +159,5 @@ function servicios_javascripts()
 }
 
 add_action('wp_footer', 'servicios_javascripts', 5);
+
+?>
