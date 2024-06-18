@@ -167,9 +167,12 @@ queryall("servicios");
                     function cerrar_modal() {
                         document.getElementById('overlay').classList.remove('is-visible');
                         document.getElementById('modal').classList.remove('is-visible');
+                        $(".total_servicios").html('');
                     }
 
                     setTimeout(cerrar_modal, 2000);
+                   
+
 
                 } else {
                     $(".total_servicios").html('Ocurrio un problema');

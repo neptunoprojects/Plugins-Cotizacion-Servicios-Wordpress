@@ -75,6 +75,10 @@ function servicio_plugin_uninstall()
 register_uninstall_hook(__FILE__, 'servicio_plugin_uninstall');
 
 
+// FUNCIONES
+
+include(plugin_dir_path(__FILE__) . 'inc/funciones.php');
+
 
 // CREACIÓN DEL MENU EN EL ADMIN
 
@@ -120,9 +124,7 @@ function servicios_ajuste()
 
 }
 
-// FUNCIONES
 
-include(plugin_dir_path(__FILE__) . 'inc/funciones.php');
 
 // CARGA CSS FRONTEND
 

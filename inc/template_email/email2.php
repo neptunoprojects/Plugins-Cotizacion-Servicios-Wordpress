@@ -78,7 +78,32 @@
 
 
 
- 
+
+
+                                            <tr>
+                                                <h3>Servicios:</h3>
+
+                                                <hr/>
+
+                                                <?php
+
+                                                global $wpdb;
+                                                $array_precio = array();
+
+                                                $results = $wpdb->get_results("SELECT * FROM  {$wpdb->prefix}servicios WHERE id IN ($json)");
+
+
+                                                foreach ($results as $row => $value) :
+                                                    echo "<p><b>Título: </b> " . $value->titulo . "<b>Precio: </b> " . $value->precio .  "</p>";
+                                                    
+
+                                                    array_push($array_precio, $value->precio);
+                                                endforeach;
+                                                ?>
+
+                                                <b>Total</b>
+                                                <?php echo array_sum($array_precio); ?>
+                                            </tr>
 
                                             <!--spacing-->
                                             <tr>

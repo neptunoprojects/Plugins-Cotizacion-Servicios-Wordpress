@@ -1,7 +1,22 @@
 <?php include(plugin_dir_path(__FILE__) . 'querys_paginacion.php');
 global $results;
 query("servicios", 10);
+
+
+if (isset($_REQUEST['id'])) :
+
+    if ((wp_verify_nonce($_REQUEST['nonce'], 'borrar-nonce'))) :
+
+
+        borrar_registro("servicios", $_REQUEST['id']);
+
+        header("location: " . $_SERVER['REQUEST_URI']);
+    endif;
+
+endif;
 ?>
+
+ 
 
 <div class="container wrap">
 
@@ -56,7 +71,12 @@ query("servicios", 10);
                     <td>
                         <div class="row">
                             <div class="col">
-                                <input type="submit" name="submit_image" value="Guardar" class="button button-primary" />
+
+                                <form method="post">
+                                    <?php wp_nonce_field('borrar-nonce', 'nonce'); ?>
+                                    <input type="hidden" value="<?php echo $row->id; ?>" name="id" />
+                                    <input type="submit" value="Borrar" class="button button-primary" />
+                                </form>
                             </div>
                         </div>
                     </td>
@@ -76,4 +96,11 @@ query("servicios", 10);
     ?>
 
 
+    <style>
+        a.page-numbers,
+        span.page-numbers.current {
+            padding: 0 10px;
+            font-size: 18px;
+        }
+    </style>
 </div>
